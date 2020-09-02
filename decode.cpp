@@ -65,14 +65,11 @@ string Decode::findNext(string label){
       vector<string> content;
       int count=0;
       int rows=0, columns=0;
-      //cout<<"FILE OPEN: "<<inputFile.is_open()<<endl;
-      
-      
+   
       while(inputFile){
-        
-        if(getline(inputFile, str)){    
-          if(str==label){
-
+        if(getline(inputFile, str)){   //looks for word in a line
+          if(str==label){//makes sure operation starts from the label onwards  
+		  
             getline(inputFile, dimensions);//get int rows, cols   
               for(char num : dimensions){
                 if(isdigit(num)){
@@ -84,69 +81,36 @@ string Decode::findNext(string label){
                     }
                 }
               } 
-             //cout<<"TEST"<<endl;
+	       //get matrix data
               for(int i = 0; i<rows; i++){
                 count++;
                 vector<int> lines;
                 getline(inputFile, str);
-                  //cout<<"STR: "<<str<<endl;
                   for(char character : str){
                     if(character!=' '){
-                      lines.push_back(character);
+                      lines.push_back(character); //each line is a row for the matrix vector
                     }
                     
-                    }matrix.push_back(lines);
+                    }matrix.push_back(lines); //adds the rows to the matrix vectors
                 }
-                /*for(char line :lines){
-                      cout<<"LINE TEST: "<<line<<endl;
-              }*/
-            //get matrix data
+            
           }else{//if it's not the label, keep going
-            
             continue;
-            
           }
-        
-      
-      //cout<<"VECTOR TEST!"<<endl;
-      /*for (vector<char> v : matrix){
-          cout<<"NEW VECTOR!"<<endl;
-          for (char x : v){
-            cout << x << ' ';cout<<"HERE"<<endl;
-          }
-            std::cout << std::endl;
-}
-      cout<<"TEST: "<<str<<endl;
-        cout<<"ROWS: "<<rows<<" COLUMNS: "<<columns<<endl;
-      cout<<matrix.at(1).at(1)<<endl;
-      return "TEST1";*/
-      
-      //content.push_back(::spiralParse(rows,columns,matrix));
-     
-        
-       
-    cout<<"TEST"<<endl;
-      test = ::spiralParse(rows,columns,matrix);
+    
+      test = ::spiralParse(rows,columns,matrix); //the word found when decoding the spiral matrix
       if(test!="finish" && count<rows){
-        cout<<"RECURSE TEST!"<<endl;
-        //outputFile<<test<<endl;
         findNext(test);
-
       }else{
-        //cout<<test<<endl;
-        cout<<"TEST:"<<test<<endl;
-        cout<<"LABEL:"<<label<<endl;
-        cout<<"ROWS: "<<rows<<"COUNT: "<<count<<endl;
+	 //return to the beginning of the file and repeat the function
         inputFile.clear();
         inputFile.seekg(0);
         findNext(test);
-        
-      }//outputFile<<label<<endl;
-      }  
-       
-     }inputFile.seekg(0);
+      }
+     }  
+     }
       if(label!="finish"){
-      outputFile<<label<<endl;
+      	outputFile<<label<<endl;
     }
       return test;
       };
