@@ -8,7 +8,7 @@ using namespace std;
 //the "spiralParse" function is a slight modification of the function "spiralPrint" found at https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
 //Which was  contributed to the website by rathbupendra
 
-string spiralParse(int m, int n, vector<vector<int>> a) 
+string spiralParse(int rows, int columns, vector<vector<int>> matrix) 
 { 
 	int i, k = 0, l = 0; 
     string str;
@@ -20,39 +20,35 @@ string spiralParse(int m, int n, vector<vector<int>> a)
 		i - iterator 
 	*/
 
-	while (k < m && l < n) { 
+	while (k < rows && l < columns) { 
 		/* Print the first row from 
 			the remaining rows */
-		for (i = l; i < n; ++i) { 
-			//cout << char(a[k][i]) << ""; 
-            str+=char(a.at(k).at(i));
-		} 
+		for (i = l; i < columns; ++i) { 
+            		str+=char(matrix.at(k).at(i));
+			} 
 		k++; 
 
 		/* Print the last column 
 		from the remaining columns */
-		for (i = k; i < m; ++i) { 
-			//cout << char(a[i][n - 1]) << ""; 
-            str+=char(a.at(i).at(n - 1));
+		for (i = k; i < rows; ++i) { 
+            		str+=char(a.at(i).at(columns - 1));
 		} 
-		n--; 
+		columns--; 
 
 		/* Print the last row from 
 				the remaining rows */
-		if (k < m) { 
-			for (i = n - 1; i >= l; --i) { 
-				//cout << char(a[m - 1][i]) << ""; 
-                str+=char(a.at(m - 1).at(i));
+		if (k < rows) { 
+			for (i = columns - 1; i >= l; --i) { 
+                		str+=char(matrix.at(rows - 1).at(i));
 			} 
-			m--; 
+			rows--; 
 		} 
 
 		/* Print the first column from 
 				the remaining columns */
-		if (l < n) { 
-			for (i = m - 1; i >= k; --i) { 
-				//cout << char(a[i][l]) << ""; 
-                str+=char(a.at(i).at(l));
+		if (l < columns) { 
+			for (i = rows - 1; i >= k; --i) { 
+                		str+=char(matrix.at(i).at(l));
 			} 
 			l++; 
 		} 
