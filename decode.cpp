@@ -7,6 +7,7 @@ using namespace std;
 
 //the "spiralParse" function is a slight modification of the function "spiralPrint" found at https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
 //Which was  contributed to the website by rathbupendra
+
 string spiralParse(int m, int n, vector<vector<int>> a) 
 { 
 	int i, k = 0, l = 0; 
@@ -63,8 +64,7 @@ string Decode::findNext(string label){
       string str, dimensions, next,test;
       vector<vector<int>> matrix;//vector of vectors
       vector<string> content;
-      int count=0;
-      int rows=0, columns=0;
+      int rows=0, columns=0,count=0;
    
       while(inputFile){
         if(getline(inputFile, str)){   //looks for word in a line
@@ -90,9 +90,8 @@ string Decode::findNext(string label){
                     if(character!=' '){
                       lines.push_back(character); //each line is a row for the matrix vector
                     }
-                    
-                    }matrix.push_back(lines); //adds the rows to the matrix vectors
-                }
+                } matrix.push_back(lines); //adds the rows to the matrix vectors
+            }
             
           }else{//if it's not the label, keep going
             continue;
@@ -107,17 +106,12 @@ string Decode::findNext(string label){
         inputFile.seekg(0);
         findNext(test);
       }
-     }  
-     }
-      if(label!="finish"){
+   }   
+     }if(label!="finish"){
       	outputFile<<label<<endl;
     }
       return test;
       };
-
-
-
-
 
 //./main "input=input1.txt;output=output1.txt"
 // ./main "input=input2.txt;output=output2.txt"
