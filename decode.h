@@ -24,7 +24,7 @@ class Decode{
 
     string findNext(string label);
 
-    string spiralParse(string textArray[]);  //spiral traversal
+    string spiralParse(int rows, int columns, vector<vector<int>> matrix);  //spiral traversal
   
 };
 #endif
