@@ -10,11 +10,10 @@ using namespace std;
 
 class Decode{
   private:
-  
     string infile, outfile, label;
-    int rows, columns;
     ifstream inputFile;
     ofstream outputFile;
+  
   public:
     Decode(string infile, string outfile){
       this->infile = infile;
@@ -26,8 +25,6 @@ class Decode{
     string findNext(string label);
 
     string spiralParse(string textArray[]);  //spiral traversal
-    
-
-
+  
 };
 #endif
