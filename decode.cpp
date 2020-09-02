@@ -11,7 +11,7 @@ using namespace std;
 string spiralParse(int rows, int columns, vector<vector<int>> matrix) 
 { 
 	int i, k = 0, l = 0; 
-    string str;
+    	string str;
 
 	/* k - starting row index 
 		m - ending row index 
