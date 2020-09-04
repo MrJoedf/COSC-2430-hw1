@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
   string label = "start";
 
   Decode test(inputFileName, outputFileName);
+  cout<<test.findNext(label);
 
   return 1;
 }
