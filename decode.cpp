@@ -57,7 +57,7 @@ string spiralParse(int rows, int columns, vector<vector<int>> matrix)
 } 
 
 string Decode::findNext(string label){
-      string str, dimensions, next,test;
+      string str, dimensions,test;
       vector<vector<int>> matrix;//vector of vectors
       int rows=0, columns=0,count=0;
    
