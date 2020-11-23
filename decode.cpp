@@ -8,8 +8,7 @@ using namespace std;
 //the "spiralParse" function is a slight modification of the function "spiralPrint" found at https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/
 //Which was  contributed to the website by rathbupendra
 
-string spiralParse(int rows, int columns, vector<vector<int>> matrix) 
-{ 
+string spiralParse(int rows, int columns, vector<vector<int>> matrix) { 
 	int i, k = 0, l = 0; 
     	string str;
 
